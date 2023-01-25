@@ -7,7 +7,7 @@ class Prettifier:
     def __init__(self, request_count: int):
         self._row_index = 1
         self._request_count = request_count
-        self._table = PrettyTable(['#', 'Replies'] + [f'Request #{index}' for index in range(request_count)] + ['ASN'])
+        self._table = PrettyTable(['#', 'Replies'] + [f'Elapsed R{index + 1}' for index in range(request_count)] + ['ASN'])
 
     def update(self, replies: list[Packet], elapsed: list[float], asn: str = None):
         _replies = set([reply.src for reply in replies]) if replies else '*'
